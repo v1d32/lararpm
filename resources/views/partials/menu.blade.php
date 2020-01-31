@@ -46,6 +46,34 @@
                     </ul>
                 </li>
             @endcan
+            @can('cash_flows')
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                        <i class="fa-fw fas fa-money nav-icon">
+
+                        </i>
+                        {{ trans('cruds.cashFlows.title') }}
+                    </a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a href="{{ route("cashier.income.index") }}" class="nav-link {{ request()->is('cashier/income') || request()->is('cashier/income/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-arrow-down nav-icon">
+
+                                </i>
+                                {{ trans('cruds.income.title') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("cashier.expenditure.index") }}" class="nav-link {{ request()->is('cashier/expenditure') || request()->is('cashier/expenditure/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-arrow-up nav-icon">
+
+                                </i>
+                                {{ trans('cruds.expenditure.title') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a href="{{ route('auth.change_password') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw fa-key">

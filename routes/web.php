@@ -16,3 +16,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('users', 'Admin\UsersController');
     Route::delete('users_mass_destroy', 'Admin\UsersController@massDestroy')->name('users.mass_destroy');
 });
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'cashier', 'as' => 'cashier.'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('income','Cashier\IncomeController');
+    Route::delete('income_mass_destroy', 'Cashier\IncomeController@massDestroy')->name('income.mass_destroy');
+    Route::resource('expenditure','Cashier\ExpenditureController');
+    Route::delete('expenditure_mass_destroy', 'Cashier\ExpenditureController@massDestroy')->name('expenditure.mass_destroy');
+});
+

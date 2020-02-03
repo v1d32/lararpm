@@ -18,7 +18,7 @@ class CreateMemberTable extends Migration
             $table->string('residental_num');
             $table->string('code');
             $table->string('name');
-            $table->string('address');
+            $table->text('address');
             $table->date('birth_date');
             $table->string('phone_num')->nullable();
             $table->integer('created_by')->nullable();

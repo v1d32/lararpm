@@ -101,4 +101,54 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
+    'members' => [
+        'title'          => 'Members',
+        'title_singular' => 'Member',
+    ],
+    'membership'     => [
+        'title'          => 'Membership',
+        'title_singular' => 'Membership',
+        'fields'         => [
+            'id'                        => 'ID',
+            'id_helper'                 => '',
+            'residental_num'            => 'Res Num.',
+            'residental_num_helper'     => '',
+            'code'                      => 'Code',
+            'code_helper'                      => '',
+            'name'                      => 'Name',
+            'name_helper'                      => '',
+            'address'                   => 'Address',
+            'address_helper'                   => '',
+            'birth_date'                => 'Birth Date',
+            'birth_date_helper'                => '',
+            'phone_num'                 => 'Phone',
+            'phone_num_helper'                 => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+
+    ],
+    'loan'     => [
+        'title'          => 'Loans',
+        'title_singular' => 'Loan',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'title'             => 'Title',
+            'title_helper'      => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+
+
+
+    ],
 ];

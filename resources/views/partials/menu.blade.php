@@ -56,7 +56,7 @@
                     </a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a href="{{ route("cashier.income.index") }}" class="nav-link {{ request()->is('cashier/income') || request()->is('cashier/income/*') ? 'active' : '' }}">
+                            <a href="{{ route("teller.membership.index") }}" class="nav-link {{ request()->is('cashier/income') || request()->is('cashier/income/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-arrow-down nav-icon">
 
                                 </i>
@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route("cashier.expenditure.index") }}" class="nav-link {{ request()->is('cashier/expenditure') || request()->is('cashier/expenditure/*') ? 'active' : '' }}">
+                            <a href="{{ route("teller.loan.index") }}" class="nav-link {{ request()->is('cashier/expenditure') || request()->is('cashier/expenditure/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-arrow-up nav-icon">
 
                                 </i>
@@ -74,6 +74,37 @@
                     </ul>
                 </li>
             @endcan
+            @can('cash_flows')
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link  nav-dropdown-toggle" href="#">
+                        <i class="fa-fw fas fa-users nav-icon">
+
+                        </i>
+                        {{ trans('cruds.members.title') }}
+                    </a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a href="{{ route("teller.membership.index") }}" class="nav-link {{ request()->is('teller/membership') || request()->is('teller/membership/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
+
+                                </i>
+                                {{ trans('cruds.membership.title') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("teller.loan.index") }}" class="nav-link {{ request()->is('teller/loan') || request()->is('teller/loan/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-money nav-icon">
+
+                                </i>
+                                {{ trans('cruds.loan.title') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endcan
+
+
+
             <li class="nav-item">
                 <a href="{{ route('auth.change_password') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw fa-key">

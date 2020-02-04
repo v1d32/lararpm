@@ -42,6 +42,46 @@
                             {{ $membership->name }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.membership.fields.address') }}
+                        </th>
+                        <td>
+                            {{ $membership->address }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.membership.fields.birth_date') }}
+                        </th>
+                        <td>
+                            {{ $membership->birth_date }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.membership.fields.phone_num') }}
+                        </th>
+                        <td>
+                            {{ $membership->phone_num }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.membership.fields.image_path_id') }}
+                        </th>
+                        <td>
+                            <img height="100pt" id="pre_image_path_id" name="pre_image_path_id" src="{{ $membership->file_path_id .'/'. $membership->filename_id }}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.membership.fields.image_path_ft') }}
+                        </th>
+                        <td>
+                            <img height="100pt" id="pre_image_path_id" name="pre_image_path_id" src="{{ $membership->file_path_ft .'/'. $membership->filename_ft }}"/>
+                        </td>
+                    </tr>
 
                 </tbody>
             </table>

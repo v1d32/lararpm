@@ -17,6 +17,12 @@ class Member extends Model
         'address',
         'birth_date',
         'phone_num',
+        'filename_id',
+        'file_path_id',
+        'image_path_id',
+        'filename_ft',
+        'file_path_ft',
+        'image_path_ft',
         'created_by',
         'updated_by',
         'deleted_by'

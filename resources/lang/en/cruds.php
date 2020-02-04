@@ -123,6 +123,12 @@ return [
             'birth_date_helper'                => '',
             'phone_num'                 => 'Phone',
             'phone_num_helper'                 => '',
+
+            'image_path_id'     => 'ID Card Images',
+            'image_path_id_helper'     => '',
+            'image_path_ft'     => 'Self Images',
+            'image_path_ft_helper'     => '',
+
             'created_at'        => 'Created at',
             'created_at_helper' => '',
             'updated_at'        => 'Updated at',

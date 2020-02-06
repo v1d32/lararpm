@@ -6,7 +6,7 @@
 
     <div class="card">
         <div class="card-header">
-            {{ trans('global.edit') }} {{ trans('cruds.membership.title_singular') }}
+            {{ trans('global.create') }} {{ trans('cruds.membership.title_singular') }}
         </div>
 
         <div class="card-body">
@@ -16,7 +16,7 @@
                 @method('PUT')
                 <div class="form-group {{ $errors->has('residental_num') ? 'has-error' : '' }}">
                     <label for="residental_num">{{ trans('cruds.membership.fields.residental_num') }}*</label>
-                    <input type="text" id="residental_num" name="residental_num" class="form-control"
+                    <input type="number" id="residental_num" name="residental_num" class="form-control"
                            value="{{ old('residental_num', isset($membership) ? $membership->residental_num : '') }}"
                            required>
                     @if($errors->has('residental_num'))
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('birth_date') ? 'has-error' : '' }}">
                     <label for="birth_date">{{ trans('cruds.membership.fields.birth_date') }}*</label>
-                    <input type="date" id="birth_date" name="birth_date" class="form-control"
+                    <input type="text" id="birth_date" name="birth_date" class="form-control date"
                            value="{{ old('name', isset($membership) ? $membership->birth_date : '') }}" required>
                     @if($errors->has('birth_date'))
                         <em class="invalid-feedback">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('phone_num') ? 'has-error' : '' }}">
                     <label for="name">{{ trans('cruds.membership.fields.phone_num') }}*</label>
-                    <input type="text" id="phone_num" name="phone_num" class="form-control"
+                    <input type="number" id="phone_num" name="phone_num" class="form-control"
                            value="{{ old('phone_num', isset($membership) ? $membership->phone_num : '') }}" required>
                     @if($errors->has('phone_num'))
                         <em class="invalid-feedback">
@@ -86,10 +86,10 @@
 
                         <input type="text" id="image_path_id" name="image_path_id" style="display: none;"
                                class="form-control"
-                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_id .'/'. $membership->filename_id : '') }}">
+                               value="">
                         <button id="myBtn" class="btn btn-default btn-file">
                             <img  height="100pt" width="133.33pt" id="pre_image_path_id" name="pre_image_path_id"
-                                 src="{{ old('image_path_id', isset($membership) ? $membership->file_path_id .'/'. $membership->filename_id : '/image-placeholder.png') }}"/>
+                                  src="{{ old('image_path_id', isset($membership) ? $membership->file_path_id . $membership->filename_id : '/image-placeholder.png') }}"/>
                         </button>
                         @if($errors->has('image_path_id'))
                             <em class="invalid-feedback">
@@ -105,10 +105,10 @@
 
                         <input type="text" id="image_path_ft" name="image_path_ft" style="display: none;"
                                class="form-control"
-                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_ft .'/'. $membership->filename_ft : '') }}">
+                               value="">
                         <button id="myBtn2" class="btn btn-default btn-file">
-                            <img height="100pt" width="133.33pt" id="pre_image_path_ft" name="pre_image_path_ft"
-                                 src="{{ old('image_path_ft', isset($membership) ? $membership->file_path_ft .'/'. $membership->filename_ft : '/image-placeholder.png') }}"/>
+                            <img  height="100pt" width="133.33pt" id="pre_image_path_ft" name="pre_image_path_ft"
+                                  src="{{ old('image_path_ft', isset($membership) ? $membership->file_path_ft . $membership->filename_ft : '/image-placeholder.png') }}"/>
                         </button>
                         @if($errors->has('image_path_ft'))
                             <em class="invalid-feedback">
@@ -126,12 +126,12 @@
                 </div>
             </form>
         </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div id="my_camera"></div>
-                <input type=button value="Take Snapshot" onClick="take_snapshot()">
-            </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="my_camera"></div>
+            <input type=button value="Take Snapshot" onClick="take_snapshot()">
         </div>
     </div>
 @endsection
@@ -182,6 +182,7 @@
                 //
                 $(imagePath).val(data_uri);
                 $(PreImagePath).attr("src", data_uri);
+                $(PreImagePath).show();
                 modal.style.display = "none";
             });
         }

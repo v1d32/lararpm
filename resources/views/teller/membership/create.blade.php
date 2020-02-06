@@ -15,7 +15,7 @@
 
                 <div class="form-group {{ $errors->has('residental_num') ? 'has-error' : '' }}">
                     <label for="residental_num">{{ trans('cruds.membership.fields.residental_num') }}*</label>
-                    <input type="text" id="residental_num" name="residental_num" class="form-control"
+                    <input type="number" id="residental_num" name="residental_num" class="form-control"
                            value="{{ old('residental_num', isset($membership) ? $membership->residental_num : '') }}"
                            required>
                     @if($errors->has('residental_num'))
@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('phone_num') ? 'has-error' : '' }}">
                     <label for="name">{{ trans('cruds.membership.fields.phone_num') }}*</label>
-                    <input type="text" id="phone_num" name="phone_num" class="form-control"
+                    <input type="number" id="phone_num" name="phone_num" class="form-control"
                            value="{{ old('phone_num', isset($membership) ? $membership->phone_num : '') }}" required>
                     @if($errors->has('phone_num'))
                         <em class="invalid-feedback">
@@ -85,10 +85,10 @@
 
                         <input type="text" id="image_path_id" name="image_path_id" style="display: none;"
                                class="form-control"
-                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_id .'/'. $membership->filename_id : '') }}">
+                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_id . $membership->filename_id : '') }}">
                         <button id="myBtn" class="btn btn-default btn-file">
                             <img  height="100pt" width="133.33pt" id="pre_image_path_id" name="pre_image_path_id"
-                                 src="{{ old('image_path_id', isset($membership) ? $membership->file_path_id .'/'. $membership->filename_id : '/image-placeholder.png') }}"/>
+                                 src="{{ old('image_path_id', isset($membership) ? $membership->file_path_id . $membership->filename_id : '/image-placeholder.png') }}"/>
                         </button>
                         @if($errors->has('image_path_id'))
                             <em class="invalid-feedback">
@@ -104,10 +104,10 @@
 
                         <input type="text" id="image_path_ft" name="image_path_ft" style="display: none;"
                                class="form-control"
-                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_ft .'/'. $membership->filename_ft : '') }}">
+                               value="{{ old('image_path_id', isset($membership) ? $membership->file_path_ft . $membership->filename_ft : '') }}">
                         <button id="myBtn2" class="btn btn-default btn-file">
                             <img  height="100pt" width="133.33pt" id="pre_image_path_ft" name="pre_image_path_ft"
-                                 src="{{ old('image_path_ft', isset($membership) ? $membership->file_path_ft .'/'. $membership->filename_ft : '/image-placeholder.png') }}"/>
+                                 src="{{ old('image_path_ft', isset($membership) ? $membership->file_path_ft . $membership->filename_ft : '/image-placeholder.png') }}"/>
                         </button>
                         @if($errors->has('image_path_ft'))
                             <em class="invalid-feedback">

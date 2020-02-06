@@ -128,12 +128,24 @@ class MembershipController extends Controller
         if ($request->get("image_path_ft")) {
             $file_ft = $this->uploadDoc($request->all(), $request->get('image_path_ft'));
         }
-        $data['filename_id'] = $file_id["name"];
-        $data['file_path_id'] = $file_id["path"];
-        $data['image_path_id'] = $file_id["image"];
-        $data['filename_ft'] = $file_ft["name"];
-        $data['file_path_ft'] = $file_ft["path"];
-        $data['image_path_ft'] = $file_ft["image"];
+        if (count($file_id)) {
+            $data['filename_id'] = $file_id["name"];
+            $data['file_path_id'] = $file_id["path"];
+            $data['image_path_id'] = $file_id["image"];
+        }else{
+            $data['filename_id'] = $membership["filename_id"];
+            $data['file_path_id'] = $membership["file_path_id"];
+            $data['image_path_id'] = $membership["image_path_id"];
+        }
+        if (count($file_ft)) {
+            $data['filename_ft'] = $file_ft["name"];
+            $data['file_path_ft'] = $file_ft["path"];
+            $data['image_path_ft'] = $file_ft["image"];
+        }else{
+            $data['filename_ft'] = $membership["filename_ft"];
+            $data['file_path_ft'] = $membership["file_path_ft"];
+            $data['image_path_ft'] = $membership["image_path_ft"];
+        }
         $data['birth_date'] = date("Y-m-d", strtotime($data['birth_date']));//$file_ft["image"];
 
         $membership->update($data);
